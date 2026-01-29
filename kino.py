@@ -7,23 +7,32 @@ import datetime as f
 #Por lo tanto hay que transformarlo a STRING
 fecha=str(f.date.today())
 
-for i in range(1,26,1):
-    if (i==5 or i==10 or i==15 or i==20 or i==25 ):
-        print(i) # \n
-    else:
-        print(i, end="\t")
+# Ahora definiré las funciones de mi código
+def imprime_numero_kino():
+    for i in range(1,26,1):
+        if (i==5 or i==10 or i==15 or i==20):
+            print(i) # \n
+        else:
+            print(i, end="\t")
 
+# Lista que almacena mis números comprados
 numeros_comprados=[]
 
-for i in range(14):
-    num=r.randint(1,25) # Genera un número entre 1 y 25
+def selecciona_azar():
+    # Para poder utilizar la lista que vive fuera de la función
+    # Necesito decirle a python que la busque fuera de función
+    # mediante la palabla global
+    global numeros_comprados
+    
+    for i in range(14):
+        num=r.randint(1,25) # Genera un número entre 1 y 25
 
-    while num in numeros_comprados:
-        num=r.randint(1,25) # Si el número generado ya esta
-                            # en la lista... se vuelve a generar
-    else:
-        numeros_comprados.append(num) # Si no estaba en la lista.. 
-                                      # Entonces lo guardamos..se agrega!
+        while num in numeros_comprados:
+            num=r.randint(1,25) # Si el número generado ya esta
+                                # en la lista... se vuelve a generar
+        else:
+            numeros_comprados.append(num) # Si no estaba en la lista.. 
+                                        # Entonces lo guardamos..se agrega!
 
 
 nombre=input("Ingresa tu nombre:")
